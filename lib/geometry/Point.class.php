@@ -25,7 +25,6 @@ class Point extends Geometry
     if (!is_numeric($x) || !is_numeric($y)) {
       throw new Exception("Cannot construct Point. x and y should be numeric");
     }
-
     // Check to see if this is a 3D point
     if ($z !== NULL) {
       if (!is_numeric($z)) {
@@ -36,10 +35,10 @@ class Point extends Geometry
     
     // Check to see if this is a measure
     if ($m !== NULL) {
-    	if (!is_numeric($m)) {    		
-    		throw new Exception("Cannot construct Point. m should be numeric");
-    	}    	
-    	$this->setMeasured(TRUE);
+      if (!is_numeric($m)) {        
+        throw new Exception("Cannot construct Point. m should be numeric");
+      }     
+      $this->setMeasured(TRUE);
       $this->dimension++;
     }
 
@@ -50,7 +49,7 @@ class Point extends Geometry
     $m = floatval($m);
 
     // Set position
-    if (!$z) {
+    if ($z === null) {
       $this->coords = array($x, $y);
     }
     else {

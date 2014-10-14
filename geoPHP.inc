@@ -42,7 +42,6 @@ class geoPHP
   // if $data is an array, all passed in values will be combined into a single geometry
   static function load() {
     $args = func_get_args();
-
     $data = array_shift($args);
     $type = array_shift($args);
 
